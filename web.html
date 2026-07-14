@@ -1,0 +1,260 @@
+<html><head><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-slate-900 text-white p-4"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aromatic Beans Coffee Co.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom fonts for premium feel */
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+
+        /* Custom styles for parallax effect */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80'); /* Coffee beans background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+        .parallax-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-stone-900 bg-opacity-90 backdrop-blur-sm shadow-md z-50 py-4">
+        <nav class="container mx-auto flex justify-between items-center px-6 lg:px-8">
+            <a href="#" class="text-2xl font-bold text-amber-500 uppercase tracking-wider">Aromatic Beans</a>
+            <div class="hidden lg:flex space-x-8">
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium">Home</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium">Shop</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium">About Us</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium">Menu</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium">Contact</a>
+            </div>
+            <div class="hidden lg:flex items-center space-x-4">
+                <button class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                </button>
+                <button class="px-5 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition duration-300 ease-in-out font-medium shadow-lg">Order Now</button>
+            </div>
+            <button class="lg:hidden text-stone-300" id="mobile-menu-button">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-stone-800 py-4 mt-2">
+            <nav class="flex flex-col items-center space-y-4">
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium text-lg">Home</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium text-lg">Shop</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium text-lg">About Us</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium text-lg">Menu</a>
+                <a href="#" class="text-stone-300 hover:text-amber-500 transition duration-300 ease-in-out font-medium text-lg">Contact</a>
+                <button class="px-5 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition duration-300 ease-in-out font-medium shadow-lg mt-4">Order Now</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg relative h-screen flex items-center justify-center text-center text-white pt-20">
+            <div class="parallax-overlay absolute inset-0"></div>
+            <div class="relative z-10 max-w-4xl px-6">
+                <p class="text-lg md:text-xl uppercase tracking-widest mb-4 text-amber-300">Experience the Richness</p>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">Crafting Perfection in Every Cup</h1>
+                <p class="text-base md:text-xl mb-10 max-w-2xl mx-auto">
+                    From the finest beans sourced globally to expert roasting, we deliver an unparalleled coffee experience.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#" class="inline-block px-8 py-3 bg-amber-600 text-white font-semibold rounded-full hover:bg-amber-700 transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg">Explore Our Menu</a>
+                    <a href="#" class="inline-block px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-stone-900 transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg">Find a Location</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="py-16 md:py-24 bg-stone-50">
+            <div class="container mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710bfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Barista preparing coffee" class="rounded-xl shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out object-cover w-full h-96">
+                </div>
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <p class="text-lg uppercase tracking-widest mb-3 text-amber-600 font-medium">Our Heritage</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">Passionately Roasted, Perfectly Brewed.</h2>
+                    <p class="text-lg text-stone-700 mb-8 max-w-xl mx-auto lg:mx-0">
+                        Aromatic Beans Coffee Co. was founded on a simple principle: to share the finest coffee with the world. We meticulously select beans from sustainable farms, roast them to perfection, and brew each cup with unwavering dedication. Discover the difference passion makes.
+                    </p>
+                    <a href="#" class="inline-block px-7 py-3 bg-stone-900 text-white font-semibold rounded-full hover:bg-amber-600 transition duration-300 ease-in-out shadow-lg">Learn More About Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase Section -->
+        <section class="py-16 md:py-24 bg-stone-100">
+            <div class="container mx-auto px-6 lg:px-8 text-center">
+                <p class="text-lg uppercase tracking-widest mb-3 text-amber-600 font-medium">Our Signature Selection</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-12">Taste the Excellence</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1509785307050-84ad160e1f37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Espresso Delight" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-stone-900 mb-2">Espresso Delight</h3>
+                            <p class="text-stone-700 text-base mb-4">A bold and robust espresso blend with notes of dark chocolate and caramel.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 text-2xl font-bold">$4.50</span>
+                                <button class="px-6 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition duration-300 ease-in-out shadow-md">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1542181938-f3d3d6664d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Latte Artistry" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-stone-900 mb-2">Latte Artistry</h3>
+                            <p class="text-stone-700 text-base mb-4">Creamy, smooth latte crafted with precision, a true work of art in every cup.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 text-2xl font-bold">$5.25</span>
+                                <button class="px-6 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition duration-300 ease-in-out shadow-md">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1534062168582-7e9b04751480?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Cold Brew Reserve" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-stone-900 mb-2">Cold Brew Reserve</h3>
+                            <p class="text-stone-700 text-base mb-4">Slow-steeped for 18 hours, offering a naturally sweet and exceptionally smooth taste.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-600 text-2xl font-bold">$4.75</span>
+                                <button class="px-6 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition duration-300 ease-in-out shadow-md">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <a href="#" class="inline-block px-10 py-4 bg-stone-900 text-white text-lg font-semibold rounded-full hover:bg-amber-600 transition duration-300 ease-in-out shadow-lg">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 md:py-24 bg-stone-50">
+            <div class="container mx-auto px-6 lg:px-8 text-center">
+                <p class="text-lg uppercase tracking-widest mb-3 text-amber-600 font-medium">What Our Customers Say</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-12">Raving Reviews</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                        <p class="text-xl italic text-stone-700 mb-6">"The best coffee I've ever tasted! The aroma, the flavor, everything is just perfect. Aromatic Beans has become my daily ritual."</p>
+                        <p class="font-bold text-amber-600 text-lg">- Sarah J.</p>
+                        <p class="text-sm text-stone-500">Coffee Enthusiast</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                        <p class="text-xl italic text-stone-700 mb-6">"Their cold brew is simply divine. Smooth, refreshing, and gives me the perfect boost for my mornings. Highly recommend!"</p>
+                        <p class="font-bold text-amber-600 text-lg">- Mark T.</p>
+                        <p class="text-sm text-stone-500">Morning Commuter</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                        <p class="text-xl italic text-stone-700 mb-6">"Finally, a coffee shop that truly cares about quality. Every visit is a delightful experience, and the staff are always so friendly."</p>
+                        <p class="font-bold text-amber-600 text-lg">- Emily R.</p>
+                        <p class="text-sm text-stone-500">Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 md:py-24 bg-stone-900 text-white text-center">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Join Our Coffee Community</h2>
+                <p class="text-xl mb-10 max-w-2xl mx-auto">
+                    Sign up for our newsletter to receive exclusive offers, new product announcements, and coffee tips directly to your inbox.
+                </p>
+                <form class="max-w-xl mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email address" class="flex-grow px-6 py-4 rounded-full bg-stone-800 border-2 border-stone-700 focus:outline-none focus:border-amber-500 text-white placeholder-stone-400 text-lg">
+                    <button type="submit" class="px-8 py-4 bg-amber-600 text-white rounded-full font-semibold text-lg hover:bg-amber-700 transition duration-300 ease-in-out shadow-lg">Subscribe Now</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-12">
+        <div class="container mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="col-span-full md:col-span-1 lg:col-span-1 mb-6 md:mb-0">
+                <a href="#" class="text-3xl font-bold text-amber-500 uppercase tracking-wider block mb-4">Aromatic Beans</a>
+                <p class="text-stone-500 leading-relaxed max-w-xs">Crafting exceptional coffee experiences since 2005. Where passion meets perfection in every cup.</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Home</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Shop</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">About Us</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Menu</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Support</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">FAQ</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-amber-500 transition duration-300">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Contact Us</h3>
+                <p class="mb-2">123 Coffee Lane, Brewville, CA 90210</p>
+                <p class="mb-2">Email: info@aromaticbeans.com</p>
+                <p class="mb-4">Phone: (123) 456-7890</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-stone-400 hover:text-amber-500 transition duration-300">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22c4.781-.75 8.438-4.887 8.438-9.879z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="#" class="text-stone-400 hover:text-amber-500 transition duration-300">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.71.048.843.037 1.48.15 1.956.332.678.262 1.217.614 1.77.982.553.367 1.01.81 1.352 1.18.342.37.581.677.808 1.01.227.333.393.684.498 1.127.105.443.155.933.159 1.592l.01.127c0 2.43 0 2.784-.013 3.71-.037.843-.15 1.48-.332 1.956-.262.678-.614 1.217-.982 1.77-.367.553-.81 1.01-1.18 1.352-.37.342-.677.581-1.01 0a2.916 2.916 0 01-1.127.498c-.443.105-.933.155-1.592.159l-.127.01h-2.42c-2.43 0-2.784-.013-3.71-.048-.843-.037-1.48-.15-1.956-.332-.678-.262-1.217-.614-1.77-.982-.553-.367-1.01-.81-1.352-1.18-.37-.342-.677-.581-1.01-.808-.333-.227-.684-.393-1.127-.498-.443-.105-.933-.155-1.592-.159l-.01-.127v-2.42c0-2.43 0-2.784.013-3.71.037-.843.15-1.48.332-1.956.262-.678.614-1.217.982-1.77.367-.553.81-1.01 1.18-1.352.37-.342.677-.581 1.01-.808.333-.227.684-.393 1.127-.498.443-.105.933-.155 1.592-.159l.127-.01h2.42zm-1.232 2.148c-.993 0-1.794.801-1.794 1.794s.801 1.794 1.794 1.794 1.794-.801 1.794-1.794-.801-1.794-1.794-1.794zm1.886 3.651a5.604 5.604 0 11-11.208 0 5.604 5.604 0 0111.208 0z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="#" class="text-stone-400 hover:text-amber-500 transition duration-300">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.35a12 12 0 003.88 0c-.06-1.18-.28-2.33-.64-3.41-.36-1.08-.85-2.12-1.46-3.08-.61-.96-1.3-1.87-2.1-2.65-.8-.78-1.7-1.46-2.67-1.96-1.02-.5-2.09-.8-3.19-.8a9 9 0 00-6 2.1c1.23.47 2.4.92 3.52 1.34 1.11.42 2.16.8 3.14 1.15 1.48.52 2.9.9 4.25 1.13.23.04.47.07.7.1h.06c.03.01.07.01.1.01a7.48 7.48 0 001.03-.09c.35-.05.69-.11 1.02-.19.33-.08.66-.17.97-.28a6.37 6.37 0 001.27-.68c.39-.21.78-.44 1.14-.69a6.04 6.04 0 001.07-.84c.33-.28.64-.59.93-.93.29-.34.54-.7.76-1.07.22-.38.41-.77.56-1.16.15-.4.26-.8.34-1.2.08-.4.12-.8.12-1.21 0-.32-.01-.64-.04-.95-.03-.31-.08-.61-.16-.91-.08-.3-.18-.59-.3-.87-.12-.28-.27-.55-.44-.8-.17-.25-.37-.48-.59-.69-.22-.21-.47-.39-.74-.55-.27-.16-.57-.29-.89-.39a6.01 6.01 0 00-1.06-.39c-.36-.09-.73-.16-1.11-.2-.38-.04-.77-.06-1.16-.06a12 12 0 00-3.88 0c.06 1.18.28 2.33.64 3.41.36 1.08.85 2.12 1.46 3.08.61.96 1.3 1.87 2.1 2.65.8.78 1.7 1.46 2.67 1.96 1.02.5 2.09.8 3.19.8a9 9 0 006-2.1c-1.23-.47-2.4-.92-3.52-1.34-1.11-.42-2.16-.8-3.14-1.15-1.48-.52-2.9-.9-4.25-1.13-.23-.04-.47-.07-.7-.1h-.06c-.03-.01-.07-.01-.1-.01a7.48 7.48 0 00-1.03.09c-.35.05-.69.11-1.02.19-.33.08-.66.17-.97.28a6.37 6.37 0 00-1.27.68c-.39.21-.78.44-1.14.69a6.04 6.04 0 00-1.07.84c-.33.28-.64.59-.93.93-.29.34-.54.7-.76 1.07-.22.38-.41.77-.56 1.16-.15.4-.26.8-.34 1.2-.08.4-.12.8-.12 1.21 0 .32.01.64.04.95.03.31.08.61.16.91.08.3.18.59.3.87.12.28.27.55.44.8.17.25.37.48.59.69.22.21.47.39.74.55.27.16.57.29.89.39a6.01 6.01 0 001.06.39c.36.09.73.16 1.11.2.38.04.77.06 1.16.06z" /></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-stone-800 mt-10 pt-8 text-center text-sm text-stone-500">
+            &copy; 2023 Aromatic Beans Coffee Co. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html></body></html>

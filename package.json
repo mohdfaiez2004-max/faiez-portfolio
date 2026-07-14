@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "react-router-dom": "^7.15.0",
+    "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
