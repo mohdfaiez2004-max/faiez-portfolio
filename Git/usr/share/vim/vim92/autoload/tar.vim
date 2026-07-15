@@ -24,6 +24,9 @@
 "   2026 Apr 09 by Vim Project: fix bugs with zstd support (#19930)
 "   2026 Apr 09 by Vim Project: fix bug with dotted filename (#19930)
 "   2026 Apr 15 by Vim Project: fix more path traversal issues (#19981)
+"   2026 Apr 16 by Vim Project: use g:tar_secure in tar#Extract()
+"   2026 May 14 by Vim Project: use correct shellescape() call in Vimuntar()
+"   2026 Jun 16 by Vim Project: fix lz4 extraction on non-linux systemd (#20555)
 "
 "	Contains many ideas from Michael Toren's <tar.vim>
 "
@@ -127,7 +130,7 @@ let g:tar_leading_pat='\m^\%([.]\{,2\}/\)\+'
 fun! s:Msg(func, severity, msg)
   redraw!
   if a:severity =~? 'error'
-    echohl Error 
+    echohl Error
   else
     echohl WarningMsg
   endif
@@ -640,7 +643,7 @@ fun! tar#Extract()
   endif
 
   if tarball =~# "\.tar$"
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -649,7 +652,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tgz$"
    let extractcmd= substitute(extractcmd,"-","-z","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -658,7 +661,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tar\.gz$"
    let extractcmd= substitute(extractcmd,"-","-z","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -667,7 +670,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tbz$"
    let extractcmd= substitute(extractcmd,"-","-j","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -676,7 +679,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tar\.bz2$"
    let extractcmd= substitute(extractcmd,"-","-j","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -685,7 +688,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tar\.bz3$"
    let extractcmd= substitute(extractcmd,"-","-j","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -694,7 +697,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.txz$"
    let extractcmd= substitute(extractcmd,"-","-J","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -703,7 +706,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tar\.xz$"
    let extractcmd= substitute(extractcmd,"-","-J","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -712,7 +715,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tzst$"
    let extractcmd= substitute(extractcmd,"-","--zstd -","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -721,7 +724,7 @@ fun! tar#Extract()
 
   elseif tarball =~# "\.tar\.zst$"
    let extractcmd= substitute(extractcmd,"-","--zstd -","")
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
+   call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -731,8 +734,10 @@ fun! tar#Extract()
   elseif tarball =~# "\.tlz4$"
    if has("linux")
     let extractcmd= substitute(extractcmd,"-","-I lz4 -","")
+    call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
+   else
+    call system("lz4 --decompress --stdout -- ".shellescape(tarball)." | ".extractcmd." - ".g:tar_secure.shellescape(fname))
    endif
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -742,8 +747,10 @@ fun! tar#Extract()
   elseif tarball =~# "\.tar\.lz4$"
    if has("linux")
     let extractcmd= substitute(extractcmd,"-","-I lz4 -","")
+    call system(extractcmd." ".shellescape(tarball)." ".g:tar_secure.shellescape(fname))
+   else
+    call system("lz4 --decompress --stdout -- ".shellescape(tarball)." | ".extractcmd." - ".g:tar_secure.shellescape(fname))
    endif
-   call system(extractcmd." ".shellescape(tarball)." ".shellescape(fname))
    if v:shell_error != 0
     call s:Msg('tar#Extract', 'error', $"{extractcmd} {tarball} {fname}: failed!")
    else
@@ -831,9 +838,9 @@ fun! tar#Vimuntar(...)
   " if necessary, decompress the tarball; then, extract it
   if tartail =~ '\.tgz'
    if executable("gunzip")
-    silent exe "!gunzip ".shellescape(tartail)
+    silent exe "!gunzip ".shellescape(tartail, 1)
    elseif executable("gzip")
-    silent exe "!gzip -d ".shellescape(tartail)
+    silent exe "!gzip -d ".shellescape(tartail, 1)
    else
     echoerr "unable to decompress<".tartail."> on this system"
     if simplify(curdir) != simplify(tarhome)

@@ -3,7 +3,7 @@ vim9script
 # Vim runtime support library
 #
 # Maintainer:   The Vim Project <https://github.com/vim/vim>
-# Last Change:  2026 Apr 06
+# Last Change:  2026 May 30
 
 export def IsSafeExecutable(filetype: string, executable: string): bool
   if empty(exepath(executable))
@@ -51,7 +51,7 @@ if has('unix')
         execute $'silent !cmd /c start "" /b {args} {Redir()}' | redraw!
       enddef
     endif
-  elseif exists('$WSL_DISTRO_NAME') # use cmd.exe to start GUI apps in WSL
+  elseif exists('$WSL_DISTRO_NAME') && executable('cmd.exe') # use cmd.exe to start GUI apps in WSL
     export def Launch(args: string)
       const command = (args =~? '\v<\f+\.(exe|com|bat|cmd)>')
         ? $'cmd.exe /c start /b {args} {Redir()}'
@@ -131,15 +131,18 @@ enddef
 export def Open(file: string)
   # disable shellslash for shellescape, required on Windows #17995
   if exists('+shellslash') && &shellslash
-    &shellslash = false
     defer setbufvar('%', '&shellslash', true)
+    &shellslash = false
   endif
   if &shell == 'pwsh' || &shell == 'powershell'
-    const shell = &shell
+    defer setbufvar('%', '&shell', &shell)
     setlocal shell&
-    defer setbufvar('%', '&shell', shell)
   endif
-  Launch($"{Viewer()} {shellescape(file, 1)}")
+  if has('unix') && !has('win32unix') && !exists('$WSL_DISTRO_NAME')
+    Launch($"{Viewer()} {shellescape(file)}")
+  else
+    Launch($"{Viewer()} {shellescape(file, 1)}")
+  endif
 enddef
 
 # Uncomment this line to check for compilation errors early

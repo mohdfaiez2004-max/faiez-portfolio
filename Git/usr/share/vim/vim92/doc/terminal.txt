@@ -1,4 +1,4 @@
-*terminal.txt*	For Vim version 9.2.  Last change: 2026 Apr 06
+*terminal.txt*	For Vim version 9.2.  Last change: 2026 Jun 24
 
 
 		  VIM REFERENCE MANUAL	  by Bram Moolenaar
@@ -232,7 +232,7 @@ Command syntax ~
 			keys in the terminal window.  For MS-Windows see the
 			++eof argument below.
 
-						*term++close* *term++open*
+					    *term++close* *term++noclose* *term++open*
 			Supported [options] are:
 			++close		The terminal window will close
 					automatically when the job terminates.
@@ -965,6 +965,20 @@ term_start({cmd} [, {options}])			*term_start()*
 		input and one output handle, with no separate handle for
 		stderr.
 
+		Note: term_start() always uses RAW mode for its callbacks.
+		"out_cb" and "err_cb" receive the raw chunk of data as read
+		from the OS.  A single callback invocation may contain
+		multiple lines separated by NL, and (for stdout via a pty)
+		each line may have a trailing CR from the line discipline
+		(ONLCR).  If per-line handling is desired, the callback must
+		split "msg" on NL and strip the trailing CR itself.
+		Example: >
+			func Handle(ch, msg)
+			  for line in split(a:msg, "\n")
+			    echom substitute(line, '\r$', '', '')
+			  endfor
+			endfunc
+<
 		There are extra options:
 		   "term_name"	     name to use for the buffer name, instead
 				     of the command name.
@@ -987,9 +1001,11 @@ term_start({cmd} [, {options}])			*term_start()*
 				     terminal window, see |term_setkill()|
 		   "term_finish"     What to do when the job is finished:
 					"close": close any windows
+					"noclose": window will not be opened
 					"open": open window if needed
 				     Note that "open" can be interruptive.
-				     See |term++close| and |term++open|.
+				     See |term++close|, |term++noclose| and
+				     |term++open|.
 		   "term_opencmd"    command to use for opening the window
 				     when "open" is used for "term_finish";
 				     must have "%d" where the buffer number
