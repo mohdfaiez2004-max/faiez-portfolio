@@ -45,12 +45,13 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-3">
-              <motion.button 
+              
+               <a href="/resume.pdf"
+               
               whileHover={{scale: 1.05}}
               whileTap={{scale: 0.97}}
-               className="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold transition hover:bg-sky-500 cursor-pointer">
-               <a href="/resume.pdf"> Resume</a>
-              </motion.button>
+               className="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold transition hover:bg-sky-500 cursor-pointer"> Resume</a>
+              
 
               {/* Mobile Hamburger Toggle */}
               <button
