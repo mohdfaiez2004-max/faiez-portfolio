@@ -4,7 +4,7 @@ import pixflow from "./assets/pixflow.png";
 import priceImg from "./assets/price.png";
 import { useState } from "react";
 import { easeOut, motion } from "motion/react";
-import resume from "./assets/resume.pdf"
+
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function App() {
               whileHover={{scale: 1.05}}
               whileTap={{scale: 0.97}}
                className="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold transition hover:bg-sky-500 cursor-pointer">
-               <a href={resume}> Resume</a>
+               <a href="/resume.pdf"> Resume</a>
               </motion.button>
 
               {/* Mobile Hamburger Toggle */}
