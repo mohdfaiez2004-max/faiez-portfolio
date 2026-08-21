@@ -198,7 +198,7 @@ export default function App() {
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { category: "Frontend", title: "HTML & CSS" },
-                { category: "Language", title: "JavaScript & typeScript" },
+                { category: "Language", title: "JavaScript & TypeScript" },
                 { category: "Framework", title: "React" },
                 { category: "Styling", title: "Tailwind CSS" },
                 { category: "Backend", title: "REST APIs" },
